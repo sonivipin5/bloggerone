@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+  .logo {
+    @apply mx-[5vw] py-1 text-white text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500;
+  }
+  .center{
+    @apply flex justify-center items-center;
+  }
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+  
+  
+}
+html,
+body {
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  
+  margin: 0;
+  font-family: 'Bitter', serif;
+}
+
+.hfull{
+  height: 100%;
+}
+
+
+
+/* ========================= hamburger =========================== */
+:root{
+  --ham-width: 30px;
+  --ham-bgc: #0af2fa;
+}
+.ham {
+  width: var(--ham-width);
+  height: 3px;
+  top: 0;
+  right: 0;
+  position: absolute;
+  background-color: var(--ham-bgc);
+  transition: all 200ms ease-in-out;
+  z-index: 11;
+}
+
+.ham::before {
+  content: "";
+  top: 10px;
+  right: 0;
+  width: var(--ham-width);
+  height: 3px;
+  position: absolute;
+  background-color: var(--ham-bgc);
+  transition: all 200ms ease-in-out;
+}
+
+.ham::after {
+  content: "";
+  top: 20px;
+  right: 0;
+  width: var(--ham-width);
+  height: 3px;
+  position: absolute;
+  background-color: var(--ham-bgc);
+  transition: all 200ms ease-in-out;
+}
+
+/* ham-cover */
+.hamBack {
+  width: 50px;
+  height: 50px;
+  z-index: 16;
+  top: 20px;
+  left: 10px;
+  position: fixed;
+  background-color: transparent;
+}
+
+/* ham-active */
+
+.ham-active {
+  width: var(--ham-width);
+  height: 3px;
+  margin: 10px 0 0 2px;
+  top: 0;
+  right: 0;
+  position: absolute;
+  background-color: var(--ham-bgc);
+  transform: rotate(45deg);
+  transition: all 200ms ease-in-out;
+}
+
+.ham-active::before {
+  content: "";
+  width: var(--ham-width);
+  top: 10px;
+  right: 0;
+  height: 3px;
+  position: absolute;
+  background-color: var(--ham-bgc);
+  transform: rotate(90deg);
+  transition: all 200ms ease-in-out;
+  display: none;
+}
+
+.ham-active::after {
+  content: "";
+  width: var(--ham-width);
+  height: 3px;
+  top: 1px;
+  right: 0;
+  position: absolute;
+  background-color: var(--ham-bgc);
+  transform: rotate(90deg);
+  transition: all 200ms ease-in-out;
+}
+
+/* ========================= hamburger end =========================== */
+
+
+/* ========================= Loader css =========================== */
+
+
+.loader{ 
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader .ring{
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: -30px;
+  border-radius: 50%;
+  --tw-ring-shadow: none;
+  border: 4px solid transparent;
+  border-top: 4px solid #24ecff;
+  animation: animate 4s linear infinite;
+}
+@keyframes animate {
+  0%{
+      transform: rotate(0deg);
+  }
+  100%{
+      transform: rotate(360deg);
+  }
+}
+.loader .ring::before{
+  content: '';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  background-color: #24ecff;
+  box-shadow: 0 0 0 5px #24ecff33,
+  0 0 0 10px #24ecff22,
+  0 0 0 20px #24ecff11,
+  0 0 20px #24ecff,
+  0 0 50px #24ecff;
+}
+.loader .ring:nth-child(2){
+  animation: animate2 4s linear infinite;
+  animation-delay: -1s;
+  border-top: 4px solid transparent;
+  border-left: 4px solid #93ff2d;
+}
+
+.loader .ring:nth-child(2)::before{
+  content: '';
+  position: absolute;
+  top:initial;
+  bottom: 12px;
+  left: 12px;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  background-color: #93ff2d;
+  box-shadow: 0 0 0 5px #93ff2d33,
+  0 0 0 10px #93ff2d22,
+  0 0 0 20px #93ff2d11,
+  0 0 20px #93ff2d,
+  0 0 50px #93ff2d;
+}
+
+@keyframes animate2 {
+  0%{
+      transform: rotate(360deg);
+  }
+  100%{
+      transform: rotate(0deg);
+  }
+}
+.loader .ring:nth-child(3){
+  animation: animate2 4s linear infinite;
+  animation-delay: -3s;
+  position: absolute;
+  top: -66.66px;
+  border-top: 4px solid transparent;
+  border-left: 4px solid #e41cf8;
+}
+
+.loader .ring:nth-child(3)::before{
+  content: '';
+  position: absolute;
+  top:initial;
+  bottom: 12px;
+  left: 12px;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  background-color: #e41cf8;
+  box-shadow: 0 0 0 5px #e41cf833,
+  0 0 0 10px #e41cf822,
+  0 0 0 20px #e41cf811,
+  0 0 20px #e41cf8,
+  0 0 50px #e41cf8;
+}
+.loader p{
+  position: absolute;
+  color: black;
+  font-size: 1.5em;
+  font-family: consolas;
+  bottom: -80px;
+  letter-spacing: 0.15em;
+}
+
+/* ========================= Loader css end =========================== */
